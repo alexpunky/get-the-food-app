@@ -4,7 +4,8 @@
   "description": "Get the food app for our home party",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron --inspect=8888 .",
+    "debug": "electron --inspect=8888 ."
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,16 @@
   },
   "homepage": "https://github.com/alexpunky/get-the-food-app#readme",
   "devDependencies": {
+    "electron-connect": "^0.6.2",
     "electron-rebuild": "^1.6.0",
     "electron-usb": "0.0.11",
     "electron-winstaller": "^2.6.3"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "electron": "^1.7.5",
+    "gulp": "^3.9.1",
+    "node-usb-detection": "^1.0.2",
     "require-rebuild": "^1.2.8",
     "usb": "git+https://github.com/tessel/node-usb.git#1.3.0"
   }
