@@ -1,48 +1,14 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css"
-          media="all"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <meta charset="utf-8">
+  <title>GetTheFoodApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="active content" id="home">
-        <h1>Crémaillère "Get the food"</h1>
-        <button id="next">Test</button>
-    </div>
-
-    <div class="content" id="code">
-        <h1>Entrez le code</h1>
-        <button id="back">Back</button>
-    </div>
-
-    <div class="content" id="qr-code">
-        <h1>Flashez moi</h1>
-    </div>
-
-    <script>
-        // You can also require other files to run in this process
-        require('../renderer.js')
-    </script>
-    <!-- build:remove -->
-    <!-- Connect to server process -->
-    <script>require('electron-connect').client.create()</script>
-    <!-- end:build -->
-    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="app/index.js"></script>
-    <script type="text/javascript" src="app/home.js"></script>
-    <script type="text/javascript" src="app/code.js"></script>
-    <script type="text/javascript" src="app/qr-code.js"></script>
-    <script type="text/javascript">
-        (function(GetTheFood) {
-            var home = new GetTheFood.Home();
-            var code = new GetTheFood.Code();
-        })(window.getthefood);
-    </script>
+  <app-root></app-root>
 </body>
-
 </html>
