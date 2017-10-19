@@ -1,0 +1,13 @@
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    align-self: center;
+  }
+
+  p {
+    text-align: center;
+  }
+}

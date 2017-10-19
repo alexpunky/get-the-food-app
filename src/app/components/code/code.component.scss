@@ -1,69 +1,100 @@
-.input-code {
-  margin: 4px;
-  border-radius: 5px;
-  height: 80px;
-  width: 290px;
-  border: 2px solid red;
-  font-size: 70px;
-  letter-spacing: 30px;
-  text-align: center;
-  border: 1px solid #aaa;
-
-  &.error {
-    box-shadow: 0 0 3px #FF0000, inset 0 0 3px #FF0000;
-    background-color: #FFDDDD;
-    color: #FF0000;
-  }
-
-  &.success {
-    box-shadow: 0 0 3px #00FF99, inset 0 0 3px #00FF99;
-    background-color: #55FFAA;
-    color: #00DD00;
-  }
-}
-
-.message {
-  position: absolute;
-  top: 20%;
-  width: 400px;
-  height: 200px;
-  background-color: white;
-  visibility: hidden;
-
-  &.success {
-    border: 2px solid green;
-  }
-
-  &.failure {
-    border: 2px solid red;
-  }
-}
-
-.keypad {
-  display: flex;
-  width: 300px;
-  height: 400px;
-  flex-wrap: wrap;
-
-  .key {
+.content {
+  margin-top: 25px;
+  .input-code {
     margin: 4px;
-    border-radius: 4px;
-    flex-basis: 30%;
+    border-radius: 5px;
+    height: 80px;
+    width: 230px;
+    border: 2px solid red;
+    font-size: 125%;
+    letter-spacing: 23px;
+    text-align: right;
     border: 1px solid #aaa;
+    margin: auto;
+    line-height: 75px;
 
-    &:active {
-      box-shadow: 0 0 8px #ccc, inset 0 0 8px #aaa;
-      background: #eeeeee;
+    &.error {
+      box-shadow: 0 0 3px #FF0000, inset 0 0 3px #FF0000;
+      background-color: #FFDDDD;
+      color: #FF0000;
     }
 
-    div {
-      display: flex;
-      height: 100%;
-      text-align: center;
-      justify-content: center;
-      align-self: center;
-      align-items: center;
+    &.success {
+      box-shadow: 0 0 3px #00FF99, inset 0 0 3px #00FF99;
+      background-color: #CCFFCC;
+      color: #00DD00;
+    }
+  }
+
+  .message-container {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.3);
+
+    .message {
+      width: 400px;
+      height: 200px;
+      margin: auto;
+      background-color: white;
+      opacity: 1;
+
+      &.success {
+        animation: glow-success .5s infinite alternate;
+      }
+
+      &.failure {
+        animation: glow-failure .5s infinite alternate;
+      }
+
+
+    }
+  }
+
+  .keypad {
+    display: flex;
+    width: 240px;
+    height: 320px;
+    flex-wrap: wrap;
+    margin: 8px auto;
+
+    .key {
+      margin: 4px;
+      border-radius: 4px;
+      width: 70px;
+      height: 70px;
+      border: 1px solid #aaa;
+
+      &:active {
+        box-shadow: 0 0 8px #ccc, inset 0 0 8px #aaa;
+        background: #eeeeee;
+      }
+
+      div {
+        display: flex;
+        height: 100%;
+        text-align: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+      }
     }
   }
 }
 
+@keyframes glow-success {
+  to {
+    text-shadow: 0 0 10px green;
+    box-shadow: 0 0 10px green;
+  }
+}
+
+@keyframes glow-failure {
+  to {
+    text-shadow: 0 0 10px red;
+    box-shadow: 0 0 10px red;
+  }
+}

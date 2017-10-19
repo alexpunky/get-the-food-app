@@ -1,6 +1,7 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path');
 const url = require('url');
+const usb = require('usb');
 require('electron-reload')(__dirname);
 
 require('dotenv').config();
@@ -23,6 +24,8 @@ app.on('ready', function () {
     win.loadURL(process.env.HOST);
     win.webContents.openDevTools();
   }
+
+  usb.on('attach', function(device) { console.log(device); alert(JSON.stringify(device));});
 
   // Remove window once app is closed
   win.on('closed', function () {

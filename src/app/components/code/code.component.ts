@@ -39,10 +39,14 @@ export class CodeComponent implements OnInit {
   }
 
   public write(value): void {
-    this.code += value;
+    if (this.code.length < 4) {
+      this.code += value;
 
-    if (this.code.length === 4) {
-      setTimeout(() => { this.validate(); }, 100);
+      if (this.code.length === 4) {
+        setTimeout(() => {
+          this.validate();
+        }, 100);
+      }
     }
   }
 
@@ -59,7 +63,7 @@ export class CodeComponent implements OnInit {
     this.message = 'Accès autorisé';
     this.typeMessage = 'success';
     setTimeout(() => {
-      this.router.navigate(['/qr-code']);
+      //this.router.navigate(['/qr-code']);
       this.typeMessage = '';
     }, 3000);
   }

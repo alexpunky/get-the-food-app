@@ -6,7 +6,9 @@
     </div>
   </div>
 
-  <div class="message success" [ngClass]="[ typeMessage ]">
-
+  <div class="message-container" [ngStyle]="{display: typeMessage ? 'flex': 'none'}">
+    <div class="message success" [ngClass]="[ typeMessage ]">
+      {{ message }}
+    </div>
   </div>
 </div>
