@@ -1,0 +1,95 @@
+.content {
+  padding-top: 30px;
+  .input-code {
+    margin: auto;
+    border-radius: 5px;
+    height: 80px;
+    width: 230px;
+    font-size: 125%;
+    letter-spacing: 23px;
+    text-align: right;
+    border: 1px solid #00FFFF;
+    box-shadow: 0px 0px 3px rgba(21, 233, 255, 0.75);
+    background-color: rgba(0, 22, 32, 0.75);
+    line-height: 75px;
+    color: #00FFFF;
+    text-shadow: 1px 3px 3px rgba(157, 214, 234, 1);
+  }
+
+  .message-container {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.3);
+
+    .message {
+      width: 400px;
+      height: 200px;
+      margin: auto;
+      background-color: white;
+      opacity: 1;
+
+      &.success {
+        animation: glow-success .5s infinite alternate;
+      }
+
+      &.failure {
+        animation: glow-failure .5s infinite alternate;
+      }
+
+
+    }
+  }
+
+  .keypad {
+    display: flex;
+    width: 240px;
+    height: 320px;
+    flex-wrap: wrap;
+    margin: 8px auto;
+
+    .key {
+      margin: 4px;
+      border-radius: 8px;
+      width: 70px;
+      height: 70px;
+      border: 1px solid #00FFFF;
+      color: #00FFFF;
+      text-shadow: 1px 3px 3px rgba(157, 214, 234, 1);
+      box-shadow: 0px 0px 3px rgba(21, 233, 255, 0.75);
+      font-size: 80%;
+
+      &:active {
+        border-color: #4FBFDF;
+        box-shadow: 0 0 5px rgba(21, 233, 255, 1), inset 0 0 5px rgba(255, 255, 255, 0.8);
+        background: radial-gradient(rgba(26,245, 255, 0.3) 30%, rgba(22, 48, 228, 0.1));
+      }
+
+      div {
+        display: flex;
+        height: 100%;
+        text-align: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@keyframes glow-success {
+  to {
+    text-shadow: 0 0 10px green;
+    box-shadow: 0 0 10px green;
+  }
+}
+
+@keyframes glow-failure {
+  to {
+    text-shadow: 0 0 10px red;
+    box-shadow: 0 0 10px red;
+  }
+}

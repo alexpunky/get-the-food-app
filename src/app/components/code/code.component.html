@@ -1,0 +1,14 @@
+<div class="content">
+  <div class="input-code" [ngClass]="[ typeMessage ]">{{ code }}</div>
+  <div class="keypad">
+    <div class="key" *ngFor="let key of keys" (click)="key.callback()">
+      <div>{{ key.label }}</div>
+    </div>
+  </div>
+
+  <!--<div class="message-container" [ngStyle]="{display: typeMessage ? 'flex': 'none'}">
+    <div class="message success" [ngClass]="[ typeMessage ]">
+      {{ message }}
+    </div>
+  </div>-->
+</div>
