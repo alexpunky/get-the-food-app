@@ -1,29 +1,19 @@
 .content {
-  margin-top: 25px;
+  padding-top: 30px;
   .input-code {
-    margin: 4px;
+    margin: auto;
     border-radius: 5px;
     height: 80px;
     width: 230px;
-    border: 2px solid red;
     font-size: 125%;
     letter-spacing: 23px;
     text-align: right;
-    border: 1px solid #aaa;
-    margin: auto;
+    border: 1px solid #00FFFF;
+    box-shadow: 0px 0px 3px rgba(21, 233, 255, 0.75);
+    background-color: rgba(0, 22, 32, 0.75);
     line-height: 75px;
-
-    &.error {
-      box-shadow: 0 0 3px #FF0000, inset 0 0 3px #FF0000;
-      background-color: #FFDDDD;
-      color: #FF0000;
-    }
-
-    &.success {
-      box-shadow: 0 0 3px #00FF99, inset 0 0 3px #00FF99;
-      background-color: #CCFFCC;
-      color: #00DD00;
-    }
+    color: #00FFFF;
+    text-shadow: 1px 3px 3px rgba(157, 214, 234, 1);
   }
 
   .message-container {
@@ -63,14 +53,19 @@
 
     .key {
       margin: 4px;
-      border-radius: 4px;
+      border-radius: 8px;
       width: 70px;
       height: 70px;
-      border: 1px solid #aaa;
+      border: 1px solid #00FFFF;
+      color: #00FFFF;
+      text-shadow: 1px 3px 3px rgba(157, 214, 234, 1);
+      box-shadow: 0px 0px 3px rgba(21, 233, 255, 0.75);
+      font-size: 80%;
 
       &:active {
-        box-shadow: 0 0 8px #ccc, inset 0 0 8px #aaa;
-        background: #eeeeee;
+        border-color: #4FBFDF;
+        box-shadow: 0 0 5px rgba(21, 233, 255, 1), inset 0 0 5px rgba(255, 255, 255, 0.8);
+        background: radial-gradient(rgba(26,245, 255, 0.3) 30%, rgba(22, 48, 228, 0.1));
       }
 
       div {

@@ -7,6 +7,9 @@ require('electron-reload')(__dirname);
 require('dotenv').config();
 
 let win = null;
+const usbVendor = 6512;
+const usbProduct = 36865;
+const usbDevice = 9845;
 
 app.on('ready', function () {
 
@@ -25,7 +28,18 @@ app.on('ready', function () {
     win.webContents.openDevTools();
   }
 
-  usb.on('attach', function(device) { console.log(device); alert(JSON.stringify(device));});
+  usb.on('attach', function(device) {
+    if(device.deviceDescriptor) {
+      if(device.deviceDescriptor.idVendor === usbVendor &&
+      device.deviceDescriptor.idProduct === usbProduct &&
+      device.deviceDescriptor.bcdDevice === usbDevice) {
+        //localStorage.setItem('code', 'success');
+        return;
+      }
+    }
+
+    //localStorage.setItem('code', 'error');
+  });
 
   // Remove window once app is closed
   win.on('closed', function () {

@@ -1,7 +1,9 @@
 .content {
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
+
+  color: #01FFFD;
 
   img {
     align-self: center;
@@ -9,5 +11,13 @@
 
   p {
     text-align: center;
+    animation: glow .8s infinite alternate;
+    text-shadow: 0px 0px 2px #DDDDDD;
+  }
+
+  @keyframes glow {
+    to {
+      text-shadow: 0px 0px 8px #FFFFFF;
+    }
   }
 }
