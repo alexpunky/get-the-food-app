@@ -7,6 +7,8 @@ import {RouterModule} from '@angular/router';
 import { CodeComponent } from './components/code/code.component';
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import {FormsModule} from '@angular/forms';
+import {Location} from '@angular/common';
+import {AppStateService} from './services/app-state.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import {FormsModule} from '@angular/forms';
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [Location, AppStateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

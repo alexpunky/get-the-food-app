@@ -4,8 +4,12 @@ import {State} from '../models/state';
 @Injectable()
 export class AppStateService {
 
-  private state: State;
+  private state: State = State.HOME;
 
   constructor() { }
+
+  public changeState(state: State) {
+    this.state = state;
+  }
 
 }

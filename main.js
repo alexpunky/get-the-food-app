@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, session} = require('electron');
 const path = require('path');
 const url = require('url');
 const usb = require('usb');
@@ -17,7 +17,7 @@ app.on('ready', function () {
   win = new BrowserWindow({width: 1000, height: 600});
 
   // Specify entry point
-  if (process.env.PACKAGE === 'true'){
+  if (process.env.PACKAGE === 'true') {
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
       protocol: 'file:',
@@ -28,17 +28,19 @@ app.on('ready', function () {
     win.webContents.openDevTools();
   }
 
-  usb.on('attach', function(device) {
-    if(device.deviceDescriptor) {
-      if(device.deviceDescriptor.idVendor === usbVendor &&
-      device.deviceDescriptor.idProduct === usbProduct &&
-      device.deviceDescriptor.bcdDevice === usbDevice) {
-        //localStorage.setItem('code', 'success');
-        return;
+  usb.on('attach', function (device) {
+    let cookie = {url: process.env.HOST, name: 'usb', value: 'error'};
+
+    if (device.deviceDescriptor) {
+      if (device.deviceDescriptor.idVendor === usbVendor &&
+        device.deviceDescriptor.idProduct === usbProduct &&
+        device.deviceDescriptor.bcdDevice === usbDevice) {
+        cookie = {url: process.env.HOST, name: 'usb', value: 'success'};
       }
     }
 
-    //localStorage.setItem('code', 'error');
+    session.defaultSession.cookies.set(cookie, () => {
+    });
   });
 
   // Remove window once app is closed
@@ -50,12 +52,12 @@ app.on('ready', function () {
 
 app.on('activate', () => {
   if (win === null) {
-  createWindow()
-}
-})
+    createWindow()
+  }
+});
 
 app.on('window-all-closed', function () {
-  if (process.platform != 'darwin') {
+  if (process.platform !== 'darwin') {
     app.quit();
   }
 });
