@@ -11,7 +11,7 @@ export class CodeComponent implements OnInit {
   static readonly CODE = '2214';
 
   public message = '';
-  public typeMessage = '';
+  public error = false;
 
   public keys = [
     { label: '7', callback: () => { this.write('7'); } },
@@ -61,19 +61,19 @@ export class CodeComponent implements OnInit {
 
   private success(): void {
     this.message = 'Accès autorisé';
-    this.typeMessage = 'success';
+    this.error = false;
     setTimeout(() => {
-      //this.router.navigate(['/qr-code']);
-      this.typeMessage = '';
+      this.router.navigate(['/qr-code']);
     }, 3000);
   }
 
   private failure(): void {
-    this.typeMessage = 'error';
+    this.error = true;
     this.message = 'Code erroné';
 
     setTimeout(() => {
-      this.typeMessage = '';
+      this.error = false;
+      this.message = '';
       this.code = '';
     }, 3000);
   }

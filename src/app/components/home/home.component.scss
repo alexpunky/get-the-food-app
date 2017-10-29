@@ -2,6 +2,7 @@
   padding: 80px 10px 10px 10px;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   color: #01FFFD;
 
@@ -18,6 +19,33 @@
   @keyframes glow {
     to {
       text-shadow: 0 0 8px #FFFFFF;
+    }
+  }
+
+  @keyframes glow-message {
+    to {
+      box-shadow: 0 0 10px rgba(100, 233, 255, 1);
+      text-shadow: 1px 3px 6px rgba(255, 255, 255, 1);
+    }
+  }
+
+  .message {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left:0;
+    right:0;
+    bottom: 0;
+
+    .message-content {
+      background-color: rgba(0, 22, 32, 0.75);
+      border: 1px solid #00FFFF;
+      color: #00FFFF;
+      text-shadow: 1px 3px 3px rgba(157, 214, 234, 1);
+      box-shadow: 0 0 3px rgba(21, 233, 255, 0.75);
+      padding: 20px;
+      margin: auto;
+      animation: glow-message .8s infinite alternate;
     }
   }
 }
