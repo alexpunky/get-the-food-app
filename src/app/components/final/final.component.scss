@@ -1,0 +1,20 @@
+.content {
+  padding: 80px 10px 10px 10px;
+  display: flex;
+
+  .message-content {
+    background-color: rgba(0, 22, 32, 0.75);
+    border: 1px solid #00FFFF;
+    color: #00FFFF;
+    text-shadow: 1px 3px 3px rgba(157, 214, 234, 1);
+    box-shadow: 0 0 3px rgba(21, 233, 255, 0.75);
+    padding: 20px;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    animation: glow-message .8s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
