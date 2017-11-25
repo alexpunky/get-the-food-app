@@ -14,7 +14,9 @@ const usbDevice = 9845;
 app.on('ready', function () {
 
   // Initialize the window to our specified dimensions
-  win = new BrowserWindow({width: 1000, height: 600});
+  win = new BrowserWindow({width: 1000, height: 600, fullscreen: true});
+  win.setFullScreen(true);
+  win.setMenu(null);
 
   // Specify entry point
   if (process.env.PACKAGE === 'true') {
@@ -36,6 +38,18 @@ app.on('ready', function () {
         device.deviceDescriptor.idProduct === usbProduct &&
         device.deviceDescriptor.bcdDevice === usbDevice) {
         cookie = {url: process.env.HOST, name: 'usb', value: 'success'};
+
+        if (process.env.PACKAGE === 'true') {
+          win.loadURL(url.format({
+            pathname: path.join(__dirname, 'dist/index.html'),
+            protocol: 'file:',
+            slashes: true
+          }) + '#/code');
+        } else {
+          win.loadURL(process.env.HOST + '/code');
+          win.webContents.openDevTools();
+        }
+
       }
     }
 
@@ -47,7 +61,6 @@ app.on('ready', function () {
   win.on('closed', function () {
     win = null;
   });
-
 });
 
 app.on('activate', () => {

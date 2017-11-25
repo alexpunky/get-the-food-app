@@ -27,7 +27,7 @@ import { FinalComponent } from './components/final/final.component';
         {path: 'code', component: CodeComponent},
         {path: 'final', component: FinalComponent},
       ],
-      {enableTracing: false} // <-- debugging purposes only
+      {enableTracing: false, useHash: true} // <-- debugging purposes only
     )
   ],
   providers: [Location, AppStateService, CookieService],

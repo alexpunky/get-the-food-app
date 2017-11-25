@@ -33,6 +33,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, 1500);
   }
 
+  setCookie() {
+    this.cookieService.set('testcookie', 'OUIOUI 123');
+  }
+
   ngOnDestroy(): void {
     clearInterval(this.interval);
   }

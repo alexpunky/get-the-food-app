@@ -63,7 +63,7 @@ export class CodeComponent implements OnInit {
     this.message = 'Accès autorisé';
     this.error = false;
     setTimeout(() => {
-      this.router.navigate(['/qr-code']);
+      this.router.navigate(['/final']);
     }, 3000);
   }
 

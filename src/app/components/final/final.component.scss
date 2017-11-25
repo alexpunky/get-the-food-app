@@ -13,8 +13,9 @@
     height: 300px;
     margin: auto;
     animation: glow-message .8s infinite alternate;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 75%;
   }
 }
